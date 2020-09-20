@@ -4,6 +4,7 @@
 ### Goals
 ### Background
 ### Data Dictionary
+![telco_churn_dataframe](https://www.canva.com/design/DAEISkcEkZE/qbAiGcy1Oxo4Q-CIF2LNJQ/view?website#4:payment_types)
 ****
 ## Inital Hypothesis & Thought
 ### Thoughts
