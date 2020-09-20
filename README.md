@@ -13,6 +13,7 @@
 # **Project Steps**
 ## Acquire & Prepare
 ### acquire.py
+Data is aquired from the company SQL database. Login credentials are required. Functions are stored in the acquire.py [acquire.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/acquire.py) file, which allows quick access to the data.
 ### prepare.py
 
 ## Explore
