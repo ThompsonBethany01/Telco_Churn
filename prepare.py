@@ -1,20 +1,23 @@
+import pandas as pd
+
 # Function to prepare the data, i.e. deal with outliers/missing values, create dummy vars, etc.
 def prep_telco_df(telco_churn_df):
     if telco_churn_df.duplicated().sum() == 0:
         print('No duplicates found.')
     else:
-        df = df[~df.duplicated()]
+        teclo_churn_df = telco_churn_df[~telco_churn_df.duplicated()]
         print('Duplicates removed.')
 
     # Creating dummy variables of gender
     # Creates a data frame of gender dummy variables, male == 1 and female == 0
-    df_dummies = pd.get_dummies(df.gender, drop_first=True)
+    df_dummies = pd.get_dummies(telco_churn_df.gender, drop_first=True)
 
     # Add to the original df
-    df = pd.concat([df, df_dummies],axis=1)
+    df = pd.concat([telco_churn_df, df_dummies],axis=1)
 
     # Drop the column, we do not need the string version of gender
     df = df.drop('gender', axis=1)
+    print('Dummy variables for gender created as "male".')
 
     # Several columns are being represented by yes and no
     # Going to replace Yes and No for any columns whose only value is Yes or No
@@ -26,18 +29,27 @@ def prep_telco_df(telco_churn_df):
     df['paperless_billing'] = df['paperless_billing'].replace({'No': 0, 'Yes': 1})
     df['churn'] = df['churn'].replace({'No': 0, 'Yes': 1})
 
+    print('Yes/No column values changed to boolean, 0 as no and 1 as yes')
+
     # Prepping tenure columns
     # Renaming tenure to tenure_months before creating a tenure_years column
     df = df.rename(columns = {'tenure':'tenure_months'})
 
     # Creating a new feature, tenure in years, by dividing tenure in months by 12
-    df['tenure_years'] = round(df.tenure_months / 12, 2)b
+    df['tenure_years'] = round(df.tenure_months / 12, 2)
+
+    print('Added feature for tenure in years.')
 
     # Converting total_charges to a float
     # First, have to convert all '' values with 0
     df['total_charges'] = df.total_charges.where((df.tenure_months != 0),0)
     # Now we can convert to float
     df = df.astype({'total_charges':'float64'})
+
+    print('Converted total_charges to float for easier manipulation.')
+    print('Data prep complete.')
+
+    return df
 
 # Function to split the data into train, validate, and test
 def train_test_validate(telco_churn_df):
