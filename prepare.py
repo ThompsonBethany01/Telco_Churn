@@ -2,8 +2,11 @@ import pandas as pd
 
 # Function to prepare the data, i.e. deal with outliers/missing values, create dummy vars, etc.
 def prep_telco_df(telco_churn_df):
+    # conditional checks for duplicates
+    # lets user know if no duplicates were found
     if telco_churn_df.duplicated().sum() == 0:
         print('No duplicates found.')
+    # removes duplicates, and lets user know the duplicates were removed
     else:
         teclo_churn_df = telco_churn_df[~telco_churn_df.duplicated()]
         print('Duplicates removed.')
@@ -31,6 +34,43 @@ def prep_telco_df(telco_churn_df):
 
     print('Yes/No column values changed to boolean, 0 as no and 1 as yes')
 
+    # Feature Engineering, creating single variables out of similar columns
+    # creating a new column for phone service
+    # using .replace to change values for 0 as no service, 1 as one line, 2 as multiple lines
+    df['multiple_lines'] = df.multiple_lines.replace({'No phone service': 0, 'No': 1, 'Yes': 2})
+
+    # we no longer need the original phone_service
+    # we rename multiple_lines because it now states if a customer has phone service and what kind together
+    df = df.drop('phone_service',axis=1)
+    df = df.rename(columns={'multiple_lines':'phone_service'})
+    print('Combined variable for phone_service + multiple lines created.')
+
+    # creating a new column for partner+dependents together
+    # taking the sum of partner and dependent columns, have 0 for none, 1 for has partner or dependents, 2 for having both
+    df['part_depd'] = df['partner'] + df['dependents']
+
+    # no longer need the partner and dependent columns
+    df = df.drop(['partner','dependents'],axis=1)
+    print('Combined variable for partner + dependents created.')
+
+    # changing feature for streaming tv/movies to 0 for no and 1 for yes
+    df['streaming_movies'] = df.streaming_movies.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
+    df['streaming_tv'] = df.streaming_tv.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
+
+    print('Changed streaming tv and movies to 0 for no, 1 for streams.')
+
+    # Simplifying features to 1 for yes and 0 for no
+    df['online_security'] = df.online_security.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
+    df['online_backup'] = df.online_backup.replace({'No internet service': 0, 'No': 0, 'Yes': 1})   
+
+    print('Changed backup and security to 0 for no, 1 for having the feature.')
+
+    # Simplifying features to 1 for yes and 0 for no
+    df['device_protection'] = df.device_protection.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
+    df['tech_support'] = df.tech_support.replace({'No internet service': 0, 'No': 0, 'Yes': 1})   
+
+    print('Changed protection and support to 0 for no, 1 for having the feature.')
+
     # Prepping tenure columns
     # Renaming tenure to tenure_months before creating a tenure_years column
     df = df.rename(columns = {'tenure':'tenure_months'})
@@ -47,7 +87,7 @@ def prep_telco_df(telco_churn_df):
     df = df.astype({'total_charges':'float64'})
 
     print('Converted total_charges to float for easier manipulation.')
-    print('Data prep complete.')
+    print('Data prep complete.\n\n')
 
     return df
 
