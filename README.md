@@ -6,7 +6,7 @@ Churn is defined as the rate at which customers leave a company. This is bad for
 ### Background
 ### Data Dictionary
 The Telco Churn data base contains four tables. The visual below shows each table name with the features in each, along with the foriegn keys that connect them together. For this project, the database is combined into one pandas dataframe.
-![telco_churn_dataframe](https://i.pinimg.com/originals/94/f3/bc/94f3bcb57a2a2ce1755337dc684b54c1.png)
+![telco_churn_dataframe](https://i.pinimg.com/originals/6d/dd/1a/6ddd1a8c78c29dbb2d893ca820b2e79f.png)
 
 After prepping the dataframe, the variables are as follows...
 Booleans represent 1 as 'Yes' and 0 as 'No'
@@ -41,7 +41,13 @@ With the visual below, we can see these features split by service: phone, intern
 ### acquire.py
 Data is aquired from the company SQL database. Login credentials are required. Functions are stored in the [acquire.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/acquire.py) file, which allows quick access to the data. Once the aquire file is imported, it can be used each time using the data.
 ### prepare.py
-
+Within the prepare.py file:
+- any duplicate observations aqre removed
+- features are converted to integer or float values
+    - i.e. contract_type changed from monthly, yearly, ... to 0,1,2
+- feature for tenure in months created
+- Null values in total_charges changed to 0 (due to new customer not being charged yet)
+![telco_churn_service_features](https://i.pinimg.com/originals/e1/a5/c8/e1a5c8ba70433da13f40ad33f44a5f02.png)
 ## Explore
 
 ## Model
