@@ -79,7 +79,17 @@ Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/ma
 
 Relevant exploration is documented in the final Modeling.ipynb. For the more in-depth exploration process, go to [Exploration.ipynb](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/Exploration.ipynb)
 ## Model
-
+After splitting and exploring the data, move on to modeling  
+Try four different classification models, determining which data features and model parameters create better predictions
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- K-Nearest Neighbors
+Evaluate the 3 top models on validate data set
+Evaluate the best model on test data set
 ## Conclusion
+- Choose a Random Forest Classifier using five features of: tech support, automatic payment, service/contract type, and monthly charges
+- A simplified visual of how the model works is below
+![random_forest_visual](https://i.pinimg.com/originals/7b/28/3f/7b283f5e05af1fd7f6ec949ceb847875.png)
 ****
 # **How to Reproduce**
