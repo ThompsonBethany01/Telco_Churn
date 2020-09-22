@@ -71,7 +71,9 @@ Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/ma
 - Visualizing churn with plots
     - Using sns.heatmap of correlation creates the visual below
     - I have highlighted the section which specifically displays correlation of churn to each feature
-    - The heatmap can guide features we test and include in our model
+    - The heatmap can guide features we test and include in our model  
+
+
 ![telco_correlation_for_churn](https://i.pinimg.com/originals/56/01/cb/5601cbcca5eee9af0e24c575661140f5.png)
 ## Model
 
