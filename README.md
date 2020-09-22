@@ -4,12 +4,14 @@
 ### Goals
 Churn is defined as the rate at which customers leave a company. This is bad for business, as it often costs more to attract new customers than to keep current customers. The goal of this project is to determine which customers from Telco are more likely to churn. While it would be impossible to eliminate churn completely, simply reducing the rate of churn could save the company a significant amount of revenue.
 
->Deliverables for this project includes:
->- Final model created to predict if a customer will leave the company
->- This repo containing: 
-    >- A Jupyter Notebook detailing the process to create this model
-    >- Individual modules (.py files) that hold functions to acquire and prep the data
->- CSV file with customer_id, probability of churn, and prediction of churn 
+>
+Deliverables for this project includes:
+- Final model created to predict if a customer will leave the company
+- This repo containing: 
+- A Jupyter Notebook detailing the process to create this model
+- Individual modules (.py files) that hold functions to acquire and prep the data
+- CSV file with customer_id, probability of churn, and prediction of churn 
+>
 ### Background
 ### Data Dictionary
 The Telco Churn data base contains four tables. The visual below shows each table name with the features in each, along with the foriegn keys that connect them together. For this project, the database is combined into one pandas dataframe.
