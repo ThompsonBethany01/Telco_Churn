@@ -76,6 +76,12 @@ def prep_telco_df(telco_churn_df):
 
     print('Simplified features: security, backup, protection, support, contract, internet type, and payment type.')
 
+    # to compare service types, need to create a feature for services
+    # 1 == phone, 2 == internet, 3 == phone and internet
+    df['service_type'] = df.internet_service_type.replace({2:1}) + df.phone_service.replace({2:1})
+
+    print('Column for service type added.')
+
     # Prepping tenure columns
     # Renaming tenure to tenure_months before creating a tenure_years column
     df = df.rename(columns = {'tenure':'tenure_months'})

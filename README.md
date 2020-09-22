@@ -64,7 +64,7 @@ Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/ma
 - Feature for tenure in months created
 - Null values in total_charges changed to 0 (due to new customer not being charged yet)
 - Values for categorical variables are shown below
-![telco_churn_service_features](https://i.pinimg.com/originals/e1/a5/c8/e1a5c8ba70433da13f40ad33f44a5f02.png)
+![telco_churn_service_features](https://i.pinimg.com/originals/77/e6/f9/77e6f9ae8f37e6f42c645d3fb55c2fb7.png)
 ## Explore
 - Finding which features have the highest correlation to churn
 - Testing hypothesis with Chi-Squared Contigency and T-test
@@ -74,7 +74,10 @@ Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/ma
     - The heatmap can guide features we test and include in our model  
 
 
-![telco_correlation_for_churn](https://i.pinimg.com/originals/56/01/cb/5601cbcca5eee9af0e24c575661140f5.png)
+![telco_correlation_for_churn](https://i.pinimg.com/originals/56/01/cb/5601cbcca5eee9af0e24c575661140f5.png)  
+
+
+Relevant exploration is documented in the final Modeling.ipynb. For the more in-depth exploration process, go to [Exploration.ipynb](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/Exploration.ipynb)
 ## Model
 
 ## Conclusion
