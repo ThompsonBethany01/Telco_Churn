@@ -8,22 +8,21 @@ Churn is defined as the rate at which customers leave a company. This is bad for
 The Telco Churn data base contains four tables. The visual below shows each table name with the features in each, along with the foriegn keys that connect them together. For this project, the database is combined into one pandas dataframe.
 ![telco_churn_dataframe](https://i.pinimg.com/originals/6d/dd/1a/6ddd1a8c78c29dbb2d893ca820b2e79f.png)
 
-After prepping the dataframe, the variables are as follows...
+Before prepping the dataframe, the variables are as follows...
 Booleans represent 1 as 'Yes' and 0 as 'No'
 
 | Feature                   | Definition                            | Data Type                          |
 |---------------------------|---------------------------------------|------------------------------------|
 |senior_citizen             |senior or not senior                   |int - boolean                       |
-|partner                    |has partner or not                     |int - boolean                       |
-|dependents                 |has dependent or not                   |int - boolean                       |
-|phone_service              |has phone service or not               |int - boolean                       |
-|multiple_lines             |phone lines - one, mulitple, or none   |object                              |
-|internet_service_type      |DSL, fiber Optic, or None              |object                              |
-|online_security            |secuirty, no security, no internet     |object                              |
-|online_backup              |backup, no backup, no internet         |object                              |
-|device_protection          |protection, no protection, no internet |object                              |
-|tech_support               |support, no support, no internet       |object                              |
-|streaming (tv or movies)   |streaming, no streaming, no internet   |object                              |
+|part_depd                  |has partner, dependents, or both       |int - (0-2)                         |
+|phone_service              |one or multiple lines, or no service   |int - (0-2)                         |
+|internet_service_type      |DSL, fiber optic, or no service        |int - (0-2)                         |
+|online_security            |security or not                        |int - boolean                       |
+|online_backup              |backup or not                          |int - boolean                       |
+|device_protection          |protection or not                      |int - boolean                       |
+|tech_support               |support or not                         |int - boolean                       |
+|streaming (tv or movies)   |streaming or not                       |int - boolean                       |
+|contract_type              |monthy, 1 year, 2 year                 |int - (0-2)                         |
 |paperless_billing          |paperless or mailed bills              |int - boolean                       |
 |charges (monthly or total) |in USD $                               |float                               |
 |churn                      |customer has left the company or stayed|int - boolean                       |
@@ -47,6 +46,7 @@ Within the prepare.py file:
     - i.e. contract_type changed from monthly, yearly, ... to 0,1,2
 - feature for tenure in months created
 - Null values in total_charges changed to 0 (due to new customer not being charged yet)
+Values for categorical variables are shown below.
 ![telco_churn_service_features](https://i.pinimg.com/originals/e1/a5/c8/e1a5c8ba70433da13f40ad33f44a5f02.png)
 ## Explore
 
