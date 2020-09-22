@@ -13,6 +13,13 @@ Churn is defined as the rate at which customers leave a company. This is bad for
 > - CSV file with customer_id, probability of churn, and prediction of churn 
 
 ### Background
+Why is customer loyalty important? What is the cost of churn?
+According to Fred Reichheld from [Bain&Company](https://media.bain.com/Images/BB_Prescription_cutting_costs.pdf),
+>"A 5% increase in customer retention produces
+>more than a 25% increase in profit. Why? Return customers tend
+>to buy more from a company over time. As
+>they do, operating costs to serve them decline."
+
 ### Data Dictionary
 The Telco Churn data base contains four tables. The visual below shows each table name with the features in each, along with the foriegn keys that connect them together. For this project, the database is combined into one pandas dataframe.
 ![telco_churn_dataframe](https://i.pinimg.com/originals/6d/dd/1a/6ddd1a8c78c29dbb2d893ca820b2e79f.png)
@@ -41,6 +48,8 @@ With the visual below, we can see these features split by service: phone, intern
 ![telco_churn_service_features](https://i.pinimg.com/originals/c4/18/fd/c418fd573658ce791234564b3ea1e66d.png)
 ## Inital Hypothesis & Thought
 ### Thoughts
+- Are customers with internet service more likely to remain loyal to the company? If so, is this because of the additional services that can be included? (Such as technical support or device protection)
+- Could other factors be motivating customers to leave within phone or internet services? Are prices higher for one group? Are customers more likely to choose one contract type over another?
 ### Hypotheses
 ****
 # **Project Steps**
@@ -48,7 +57,7 @@ With the visual below, we can see these features split by service: phone, intern
 ### acquire.py
 Data is aquired from the company SQL database. Login credentials are required. Functions are stored in the [acquire.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/acquire.py) file, which allows quick access to the data. Once the aquire file is imported, it can be used each time using the data.
 ### prepare.py
-Within the prepare.py file:
+Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/prepare.py) file:
 - Any duplicate observations are removed
 - Features are converted to integer or float values
     - i.e. contract_type changed from monthly, yearly, ... to 0,1,2
