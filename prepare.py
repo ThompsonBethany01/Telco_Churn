@@ -22,7 +22,7 @@ def prep_telco_df(telco_churn_df):
     df = df.drop('gender', axis=1)
     print('Dummy variables for gender created as "male".')
 
-    # Several columns are being represented by yes and no
+    # Several columns are being represented by yes and no, or a long string
     # Going to replace Yes and No for any columns whose only value is Yes or No
     # Ex: multiple lines includes yes, no, and no phone service
     # Yes == 1, No == 0
@@ -34,7 +34,7 @@ def prep_telco_df(telco_churn_df):
 
     print('Yes/No column values changed to boolean, 0 as no and 1 as yes')
 
-    # Feature Engineering, creating single variables out of similar columns
+    # Feature Engineering, creating single variables out of similar columns or those having more than yes/no options
     # creating a new column for phone service
     # using .replace to change values for 0 as no service, 1 as one line, 2 as multiple lines
     df['multiple_lines'] = df.multiple_lines.replace({'No phone service': 0, 'No': 1, 'Yes': 2})
@@ -57,19 +57,24 @@ def prep_telco_df(telco_churn_df):
     df['streaming_movies'] = df.streaming_movies.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
     df['streaming_tv'] = df.streaming_tv.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
 
-    print('Changed streaming tv and movies to 0 for no, 1 for streams.')
-
-    # Simplifying features to 1 for yes and 0 for no
+    # Simplifying features with more than yes/no options
     df['online_security'] = df.online_security.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
-    df['online_backup'] = df.online_backup.replace({'No internet service': 0, 'No': 0, 'Yes': 1})   
-
-    print('Changed backup and security to 0 for no, 1 for having the feature.')
-
-    # Simplifying features to 1 for yes and 0 for no
+    df['online_backup'] = df.online_backup.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
     df['device_protection'] = df.device_protection.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
-    df['tech_support'] = df.tech_support.replace({'No internet service': 0, 'No': 0, 'Yes': 1})   
+    df['tech_support'] = df.tech_support.replace({'No internet service': 0, 'No': 0, 'Yes': 1})
 
-    print('Changed protection and support to 0 for no, 1 for having the feature.')
+    df['contract_type'] = df.contract_type.replace({'Month-to-month':0, 'One year':1, 'Two year':2})
+    df['internet_service_type'] = df.internet_service_type.replace({'None': 0, 'DSL': 1, 'Fiber optic': 1})
+    df['payment_type'] = df.payment_type.replace({'Electronic check': 0,
+                                              'Mailed check': 0,
+                                              'Bank transfer (automatic)': 1,
+                                              'Credit card (automatic)': 1
+                                             })
+
+    df = df.drop('internet_service_type_id',axis=1)
+    df = df.rename(columns = {'payment_type':'auto_payment'})
+
+    print('Simplified features: security, backup, protection, support, contract, internet type, and payment type.')
 
     # Prepping tenure columns
     # Renaming tenure to tenure_months before creating a tenure_years column
