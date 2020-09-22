@@ -55,7 +55,7 @@ With the visual below, we can see these features split by service: phone, intern
 # **Project Steps**
 ## Acquire & Prepare
 ### acquire.py
-Data is aquired from the company SQL database. Login credentials are required. Functions are stored in the [acquire.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/acquire.py) file, which allows quick access to the data. Once the aquire file is imported, it can be used each time using the data.
+Data is aquired from the company SQL database using a [querry](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/acquire_churn.sql) to join all tables. Login credentials are required. Functions are stored in the [acquire.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/acquire.py) file, which allows quick access to the data. Once the aquire file is imported, it can be used each time using the data.
 ### prepare.py
 Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/prepare.py) file:
 - Any duplicate observations are removed
@@ -66,7 +66,13 @@ Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/ma
 - Values for categorical variables are shown below
 ![telco_churn_service_features](https://i.pinimg.com/originals/e1/a5/c8/e1a5c8ba70433da13f40ad33f44a5f02.png)
 ## Explore
-
+- Finding which features have the highest correlation to churn
+- Testing hypothesis with Chi-Squared Contigency and T-test
+- Visualizing churn with plots
+    - Using sns.heatmap of correlation creates the visual below
+    - I have highlighted the section which specifically displays correlation of churn to each feature
+    - The heatmap can guide features we test and include in our model
+![telco_correlation_for_churn](https://i.pinimg.com/originals/9e/47/3e/9e473e29588175f4607500c9f9fd376e.png)
 ## Model
 
 ## Conclusion
