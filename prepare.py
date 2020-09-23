@@ -2,6 +2,7 @@ import pandas as pd
 
 # Function to prepare the data, i.e. deal with outliers/missing values, create dummy vars, etc.
 def prep_telco_df(telco_churn_df):
+
     # conditional checks for duplicates
     # lets user know if no duplicates were found
     if telco_churn_df.duplicated().sum() == 0:
@@ -71,7 +72,9 @@ def prep_telco_df(telco_churn_df):
                                               'Credit card (automatic)': 1
                                              })
 
+    # dropping internet id column, now that we have internet service represented in numbers
     df = df.drop('internet_service_type_id',axis=1)
+    # renaming column to reflect variable changed to yes or no for if automatic
     df = df.rename(columns = {'payment_type':'auto_payment'})
 
     print('Simplified features: security, backup, protection, support, contract, internet type, and payment type.')

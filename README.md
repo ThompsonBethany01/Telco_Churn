@@ -52,21 +52,21 @@ With the visual below, we can see these features split by service: phone, intern
 - Are customers with internet service more likely to remain loyal to the company? If so, is this because of the additional services that can be included? (Such as technical support or device protection)
 - Could other factors be motivating customers to leave within phone or internet services? Are prices higher for one group? Could one service be more likely to choose a contract with more tenure?
 ### Hypotheses
-Do additional services, such as support or device protection, increase customer loyalty? 
-`Null Hypothesis: Churn is independent of tech support.`
-`Alternative Hypothesis: Customers with tech support are less likely to churn.`
+Do additional services, such as support or device protection, increase customer loyalty?  
+`Null Hypothesis: Churn is independent of tech support.`  
+`Alternative Hypothesis: Customers with tech support are less likely to churn.`  
 
-Does a specific service type affect churn? 
-`Null Hypothesis: Churn is independent of phone and internet service.`
-`Alternative Hypothesis: Customers with phone or internet service are more likely to churn.`
+Does a specific service type affect churn?   
+`Null Hypothesis: Churn is independent of phone and internet service.`  
+`Alternative Hypothesis: Customers with phone or internet service are more likely to churn.`  
 
-Does a specific service have more monthly contract custoemrs?
-`Null Hypothesis: Churn is independent of monthly contracts.`
-`Alternative Hypothesis: Monthly custoemrs are more likely to leave the company.`
+Does a specific service have more monthly contract custoemrs?  
+`Null Hypothesis: Churn is independent of monthly contracts.`  
+`Alternative Hypothesis: Monthly custoemrs are more likely to leave the company.`  
 
-Customers with automatic payments are less likely to leave the company.  
-`Null Hypothesis: Churn is independent of payment type.`
-`Alternative Hypothesis: Customers using automatic payments are less likely to leave.`
+Customers with automatic payments are less likely to leave the company.    
+`Null Hypothesis: Churn is independent of payment type.`  
+`Alternative Hypothesis: Customers using automatic payments are less likely to leave.`  
 
 ****
 # **Project Steps**
@@ -101,8 +101,8 @@ With the train data set, try four different classification models, determining w
 - Logistic Regression
 - Decision Tree
 - Random Forest
-- K-Nearest Neighbors
-Evaluate the 3 top models on the alidate data set
+- K-Nearest Neighbors  
+Evaluate the 3 top models on the validate data set
 Evaluate the best model on the test data set
 ## Conclusion
 - Hypothesis testing and correlation heatmap showed that features such as tech support and device protection do affect churn, but at a lower rate than service type or contract type
