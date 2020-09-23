@@ -81,7 +81,7 @@ def prep_telco_df(telco_churn_df):
 
     # to compare service types, need to create a feature for services
     # 1 == phone, 2 == internet, 3 == phone and internet
-    df['service_type'] = df.internet_service_type.replace({2:1}) + df.phone_service.replace({2:1})
+    df['service_type'] = df.phone_service.replace({2:1}) + df.internet_service_type.replace({1:2})
 
     print('Column for service type added.')
 

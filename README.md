@@ -44,6 +44,7 @@ After prepping the dataframe, the variables are as follows...
 |churn                      |customer has left the company or stayed|int - boolean                       |
 |tenure (months or years)   |length the customer has remained loyal |int for months, float for years     |
 |male                       |binary m/f                             |int - boolean, dummy var of gender  |
+|service type               |phone, internet, or both services      |int - (1-3)                         |
 
 With the visual below, we can see these features split by service: phone, internet, or the overall company. Note: There are several more options for customers with internet service than phone service. Could this be influencing churn for customers with only phone service?
 ![telco_churn_service_features](https://i.pinimg.com/originals/c4/18/fd/c418fd573658ce791234564b3ea1e66d.png)
@@ -52,7 +53,7 @@ With the visual below, we can see these features split by service: phone, intern
 - Are customers with internet service more likely to remain loyal to the company? If so, is this because of the additional services that can be included? (Such as technical support or device protection)
 - Could other factors be motivating customers to leave within phone or internet services? Are prices higher for one group? Could one service be more likely to choose a contract with more tenure?
 ### Hypotheses
-Do additional services, such as support or device protection, increase customer loyalty?  
+Do additional services, such as support, increase customer loyalty?  
 `Null Hypothesis: Churn is independent of tech support.`  
 `Alternative Hypothesis: Customers with tech support are less likely to churn.`  
 
@@ -60,11 +61,7 @@ Does a specific service type affect churn?
 `Null Hypothesis: Churn is independent of phone and internet service.`  
 `Alternative Hypothesis: Customers with phone or internet service are more likely to churn.`  
 
-Does a specific service have more monthly contract custoemrs?  
-`Null Hypothesis: Churn is independent of monthly contracts.`  
-`Alternative Hypothesis: Monthly custoemrs are more likely to leave the company.`  
-
-Customers with automatic payments are less likely to leave the company.    
+Are customers with automatic payments less likely to leave the company?    
 `Null Hypothesis: Churn is independent of payment type.`  
 `Alternative Hypothesis: Customers using automatic payments are less likely to leave.`  
 
@@ -110,6 +107,7 @@ Evaluate the best model on the test data set
 - The model uses five features: (tech support, automatic payment, service/contract type, and monthly charges) and a max_depth = 5
 - A simplified visual of how the model works is below
 ![random_forest_visual](https://i.pinimg.com/originals/7b/28/3f/7b283f5e05af1fd7f6ec949ceb847875.png)
+- Next steps: explore the data to find more drivers of churn and use these to refine the model.
 ****
 # **How to Reproduce**
 - [x] Read this README.md
