@@ -51,21 +51,21 @@ With the visual below, we can see these features split by service: phone, intern
 - Are customers with internet service more likely to remain loyal to the company? If so, is this because of the additional services that can be included? (Such as technical support or device protection)
 - Could other factors be motivating customers to leave within phone or internet services? Are prices higher for one group? Could one service be more likely to choose a contract with more tenure?
 ### Hypotheses
-Customers with additional features (security, tech support, backup) are less likely to leave the company.
-$H_0$:  $\mu(Churn_{support})$ = $\mu(Churn_{no-support})$
-$h_\alpha$: $\mu(Churn_{support})$ < $\mu(Churn_{no-support})$
+Customers with additional features (security, tech support, backup) are less likely to leave the company.  
+$H_0$:  $\mu(Churn_{support})$ = $\mu(Churn_{no-support})$  
+$h_\alpha$: $\mu(Churn_{support})$ < $\mu(Churn_{no-support})$  
 
-Phone service has higher rates of churn.
-$H_0$: $\mu(Churn_{internet-only})$ = $\mu(Churn_{phone-only})$
-$h_\alpha$: $\mu(Churn_{internet-only})$ > $\mu(Churn_{phone-only})$
+Phone service has higher rates of churn.  
+$H_0$: $\mu(Churn_{internet-only})$ = $\mu(Churn_{phone-only})$  
+$h_\alpha$: $\mu(Churn_{internet-only})$ > $\mu(Churn_{phone-only})$  
 
-Internet or phone service have more customers with monthly contracts.
-$H_0$: $\mu(monthly_{internet-only})$ = $\mu(monthly_{phone-only})$
-$h_\alpha$: $\mu(monthly_{internet-only})$ > $\mu(monthly_{phone-only})$
+Internet or phone service have more customers with monthly contracts.  
+$H_0$: $\mu(monthly_{internet-only})$ = $\mu(monthly_{phone-only})$  
+$h_\alpha$: $\mu(monthly_{internet-only})$ > $\mu(monthly_{phone-only})$  
 
-Customers with automatic payments are less likely to leave the company.
-$H_0$:  $\mu(Churn_{auto-payment})$ = $\mu(Churn_{no-auto-payment})$
-$h_\alpha$: $\mu(Churn_{auto-payment})$ < $\mu(Churn_{no-auto-payment})$
+Customers with automatic payments are less likely to leave the company.  
+$H_0$:  $\mu(Churn_{auto-payment})$ = $\mu(Churn_{no-auto-payment})$  
+$h_\alpha$: $\mu(Churn_{auto-payment})$ < $\mu(Churn_{no-auto-payment})$  
 
 ****
 # **Project Steps**
