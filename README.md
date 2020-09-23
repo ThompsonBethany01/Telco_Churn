@@ -8,9 +8,10 @@ Churn is defined as the rate at which customers leave a company. This is bad for
 >Deliverables for this project include:
 > - Final model created to predict if a customer will leave the company
 > - This repo containing: 
->   - A Jupyter Notebook detailing the process to create this model
+>   - A Jupyter [Notebook](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/Modeling.ipynb) detailing the process to create this model
 >   - Individual modules (.py files) that hold functions to acquire and prep the data
-> - CSV file with customer_id, probability of churn, and prediction of churn 
+    - This Readme.md detailing project goals, planning, instructions, etc. to allow recreation
+> - CSV file with customer_id, probability of churn, and prediction of churn (created at end of Modeling.ipynb)
 
 ### Background
 Why is customer loyalty important? What is the cost of churn?
@@ -51,21 +52,21 @@ With the visual below, we can see these features split by service: phone, intern
 - Are customers with internet service more likely to remain loyal to the company? If so, is this because of the additional services that can be included? (Such as technical support or device protection)
 - Could other factors be motivating customers to leave within phone or internet services? Are prices higher for one group? Could one service be more likely to choose a contract with more tenure?
 ### Hypotheses
-Customers with additional features (security, tech support, backup) are less likely to leave the company.  
-$`H_0`$:  $`\mu(Churn_{support})`$ = $`\mu(Churn_{no-support})`$  
-$`H_\alpha`$: $`\mu(Churn_{support})`$ < $`\mu(Churn_{no-support})`$  
+Do additional services, such as support or device protection, increase customer loyalty? 
+`Null Hypothesis: Churn is independent of tech support.`
+`Alternative Hypothesis: Customers with tech support are less likely to churn.`
 
-Phone service has higher rates of churn.  
-$`H_0$`: $`\mu(Churn_{internet-only})`$ = $`\mu(Churn_{phone-only})`$  
-$`H_\alpha$`: $`\mu(Churn_{internet-only})`$ > $`\mu(Churn_{phone-only})`$  
+Does a specific service type affect churn? 
+`Null Hypothesis: Churn is independent of phone and internet service.`
+`Alternative Hypothesis: Customers with phone or internet service are more likely to churn.`
 
-Internet or phone service have more customers with monthly contracts.  
-$`H_0$`: $`\mu(monthly_{internet-only})`$ = $`\mu(monthly_{phone-only})`$  
-$`H_\alpha$`: $`\mu(monthly_{internet-only})`$ > $`\mu(monthly_{phone-only})`$  
+Does a specific service have more monthly contract custoemrs?
+`Null Hypothesis: Churn is independent of monthly contracts.`
+`Alternative Hypothesis: Monthly custoemrs are more likely to leave the company.`
 
 Customers with automatic payments are less likely to leave the company.  
-$`H_0$`:  $`\mu(Churn_{auto-payment})`$ = $`\mu(Churn_{no-auto-payment})`$  
-$`H_\alpha$`: $`\mu(Churn_{auto-payment})`$ < $`\mu(Churn_{no-auto-payment})`$  
+`Null Hypothesis: Churn is independent of payment type.`
+`Alternative Hypothesis: Customers using automatic payments are less likely to leave.`
 
 ****
 # **Project Steps**
@@ -95,17 +96,23 @@ Within the [prepare.py](https://github.com/ThompsonBethany01/Telco_Churn/blob/ma
 
 Relevant exploration is documented in the final Modeling.ipynb. For the more in-depth exploration process, go to [Exploration.ipynb](https://github.com/ThompsonBethany01/Telco_Churn/blob/master/Exploration.ipynb)
 ## Model
-After splitting and exploring the data, move on to modeling  
-Try four different classification models, determining which data features and model parameters create better predictions
+After splitting and exploring the data, we move on to modeling.  
+With the train data set, try four different classification models, determining which data features and model parameters create better predictions
 - Logistic Regression
 - Decision Tree
 - Random Forest
 - K-Nearest Neighbors
-Evaluate the 3 top models on validate data set
-Evaluate the best model on test data set
+Evaluate the 3 top models on the alidate data set
+Evaluate the best model on the test data set
 ## Conclusion
-- Choose a Random Forest Classifier using five features of: tech support, automatic payment, service/contract type, and monthly charges
+- Hypothesis testing and correlation heatmap showed that features such as tech support and device protection do affect churn, but at a lower rate than service type or contract type
+- The Random Forest classification model created is four percent more accurate than the baseline model
+- The model uses five features: (tech support, automatic payment, service/contract type, and monthly charges) and a max_depth = 5
 - A simplified visual of how the model works is below
 ![random_forest_visual](https://i.pinimg.com/originals/7b/28/3f/7b283f5e05af1fd7f6ec949ceb847875.png)
 ****
 # **How to Reproduce**
+- [x] Read this README.md
+- [ ] Download the aquire.py, prepare.py, and Modeling.ipynb into your working directory
+- [ ] Run the Modeling.ipynb notebook
+- [ ] Have fun doing your own exploring, modeling, and more! 
